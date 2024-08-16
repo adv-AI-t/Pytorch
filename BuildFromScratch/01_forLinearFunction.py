@@ -1,10 +1,11 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 #let the equation be y = w*x, here let's take w as 2
 
 #setting x and y according to the formula y = 2*x
 X = np.array([1,2,3,4], dtype=np.float32)
-y = np.array([-1,-2,-3,-4], dtype=np.float32)
+y = np.array([2,4,6,8], dtype=np.float32)
 
 #initializing the weight to 0.0
 w = 0.0
@@ -43,5 +44,12 @@ for epoch in range(epochs):
     w -= learning_rate*grad
 
     print(f"Epoch {epoch}: w = {w}")
+    plt.scatter(X, y_pred, color='blue')
+    plt.title("Trend of weight")
+    plt.xlabel("Epoch")
+    plt.ylabel("Weight")
+    plt.xlim(0,5)
+    plt.ylim(0,10)
+    plt.show()
 
-print(y_pred)
+    print(y_pred)
